@@ -14,20 +14,17 @@ inheritance, tapi flow-nya tetap simple dan gampang.
 
 ## UML Relationship
 
-```mermaid
-classDiagram
-    Orang <|-- Pasien
-    Orang <|-- DokterGigi
-    DokterGigi ..> Pasien : memeriksa
-    Klinik "1" o-- "0..*" DokterGigi : memiliki
-    RekamMedis "1" *-- "1" DetailPemeriksaan : terdiri dari
-```
+Ada tiga jenis relasi yang dipakai:
 
-Relasi yang dipakai:
-
-- **Asosiasi:** `DokterGigi` memakai objek `Pasien` lewat method `periksa()`.
-- **Agregasi:** objek dokter dibuat sendiri, lalu dimasukin ke dalam `Klinik`.
-- **Komposisi:** `DetailPemeriksaan` dibuat langsung di dalam `RekamMedis`.
+1. **Asosiasi**
+   `DokterGigi` memakai objek `Pasien` lewat method `periksa()`. Objek pasien cuma
+   dipakai sebagai parameter dan nggak disimpan di dalam dokter.
+2. **Agregasi**
+   Objek dokter dibuat lebih dulu, lalu dimasukin ke daftar dokter milik `Klinik`.
+   Kalau objek klinik dihapus, objek dokternya tetap bisa dipakai.
+3. **Komposisi**
+   `DetailPemeriksaan` dibuat langsung di dalam `RekamMedis`, jadi detail tersebut
+   menjadi bagian penuh dari satu rekam medis.
 
 ## Inheritance Stuff
 
