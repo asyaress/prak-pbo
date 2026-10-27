@@ -19,7 +19,6 @@ class Pasien:
     def cek_umur(umur):
         return isinstance(umur, int) and umur > 0
 
-
 class DokterGigi:
     total_dokter = 0
 
